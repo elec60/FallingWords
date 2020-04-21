@@ -7,8 +7,22 @@ class Question(
     val spanish: String,
     val isCorrect: Boolean = true
 ) {
-    fun answer(answer: Answer):Boolean {
-        return true
+    var answeredOption: Answer? = null
+        private set
+
+    val isAnsweredCorrectly: Boolean?
+        get() = when (answeredOption) {
+            Answer.NONE -> false
+            Answer.CORRECT -> isCorrect
+            Answer.WRONG -> !isCorrect
+            null -> null
+        }
+
+
+    fun answer(answer: Answer): Boolean {
+        answeredOption = answer
+
+        return isAnsweredCorrectly!!
     }
 
 }
