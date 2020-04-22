@@ -10,15 +10,11 @@ import com.sma6871.fallingwords.R
 import com.sma6871.fallingwords.presentation.viewmodel.GameViewModel
 import kotlinx.android.synthetic.main.fragment_welcome.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class WelcomeDialogFragment : DialogFragment() {
 
-    private var viewModel: GameViewModel? = null
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        viewModel = activity?.getViewModel()
-    }
+    private val viewModel: GameViewModel by sharedViewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,7 +28,7 @@ class WelcomeDialogFragment : DialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         btnStart.setOnClickListener {
-            viewModel?.nextQuestion()
+            viewModel.nextQuestion()
             dismiss()
         }
     }

@@ -30,8 +30,8 @@ class GameViewModel(
     fun getGameState(): Observable<GameState> = gameStateSubject
 
     private var game: Game? = null
-    private var question: Question? = null
-
+    var question: Question? = null
+        private set
 
     private val bag = CompositeDisposable()
 
@@ -77,7 +77,7 @@ class GameViewModel(
         game?.let {
             it.answer(question!!, answerOption)
             scoreLiveData.value = it.score
-            gameStateSubject.onNext(LevelResultState(question!!))
+            gameStateSubject.onNext(LevelResultState)
         }
     }
 

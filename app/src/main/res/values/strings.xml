@@ -7,4 +7,7 @@
     <string name="welcome_n_falling_word_game">Welcome To\n Falling Word Game</string>
     <string name="let_s_go">Let\'s Go</string>
     <string name="are_you_ready_to_learn_new_spanish_words">Are you ready to learn new Spanish words?</string>
+    <string name="next">Next</string>
+    <string name="correct_answer">Correct Answer</string>
+    <string name="wrong_answer">Wrong Answer</string>
 </resources>

@@ -15,11 +15,11 @@ import com.sma6871.fallingwords.presentation.state.LevelResultState
 import com.sma6871.fallingwords.presentation.state.QuestionState
 import com.sma6871.fallingwords.presentation.state.WelcomeState
 import com.sma6871.fallingwords.presentation.viewmodel.GameViewModel
+import com.sma6871.fallingwords.ui.dialog.ResultDialogFragment
 import com.sma6871.fallingwords.ui.dialog.WelcomeDialogFragment
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.plusAssign
 import kotlinx.android.synthetic.main.activity_main.*
-import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         btnWrong.setOnClickListener {
             viewModel.answerQuestion(AnswerOption.WRONG)
         }
-        btnWrong.setOnClickListener {
+        btnCorrect.setOnClickListener {
             viewModel.answerQuestion(AnswerOption.CORRECT)
         }
     }
@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
                 when (state) {
                     WelcomeState -> showWelcomeScreen()
                     is QuestionState -> showQuestion(state.question)
-                    is LevelResultState -> showLevelResult(state.question)
+                    LevelResultState -> showLevelResult()
                     FinishState -> showFinalScreen()
                 }
             },
@@ -92,8 +92,10 @@ class MainActivity : AppCompatActivity() {
         WelcomeDialogFragment().show(supportFragmentManager, "WELCOME_FRAGMENT")
     }
 
-    private fun showLevelResult(question: Question) {
-        TODO("Not yet implemented")
+    private fun showLevelResult() {
+        animation?.removeAllUpdateListeners()
+        animation?.removeAllListeners()
+        ResultDialogFragment().show(supportFragmentManager, "RESULT_DIALOG")
     }
 
     private fun showQuestion(question: Question) {
@@ -120,6 +122,7 @@ class MainActivity : AppCompatActivity() {
             duration = LevelDuration
             start()
         }
+
 
     }
 
