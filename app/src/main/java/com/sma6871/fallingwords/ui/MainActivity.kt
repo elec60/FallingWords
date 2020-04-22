@@ -106,7 +106,9 @@ class MainActivity : AppCompatActivity() {
     private fun showLevelResult() {
         animation?.removeAllUpdateListeners()
         animation?.removeAllListeners()
-        ResultDialogFragment().show(supportFragmentManager, "RESULT_DIALOG")
+        val resultDialogFragment = ResultDialogFragment()
+        resultDialogFragment.isCancelable = false
+        resultDialogFragment.show(supportFragmentManager, "RESULT_DIALOG")
     }
 
     private fun showQuestion(question: Question) {
