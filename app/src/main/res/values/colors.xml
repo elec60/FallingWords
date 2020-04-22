@@ -5,12 +5,14 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="wrong">#F44336</color>
     <color name="correct">#4CAF50</color>
-    <color name="floor">#BF360C</color>
+    <color name="floor">#F48FB1</color>
     <color name="black">#000000</color>
-    <color name="translation">#F57F17</color>
-    <color name="score">#3949AB</color>
+    <color name="translation">#FFFFFF</color>
+    <color name="score">#F48FB1</color>
     <color name="white">#ffffff</color>
     <color name="title">#8E24AA</color>
     <color name="finish_bg">#FF4081</color>
     <color name="yellow">#EEFF41</color>
+    <color name="teal">#F44336</color>
+    <color name="back">#E1E1E1</color>
 </resources>

@@ -1,11 +1,13 @@
 package com.sma6871.fallingwords.ui
 
 import android.animation.ValueAnimator
+import android.graphics.Shader
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.animation.doOnEnd
 import androidx.core.animation.doOnStart
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import com.sma6871.fallingwords.R
 import com.sma6871.fallingwords.game.enums.AnswerOption
@@ -18,6 +20,7 @@ import com.sma6871.fallingwords.presentation.viewmodel.GameViewModel
 import com.sma6871.fallingwords.ui.dialog.FinishDialogFragment
 import com.sma6871.fallingwords.ui.dialog.ResultDialogFragment
 import com.sma6871.fallingwords.ui.dialog.WelcomeDialogFragment
+import com.sma6871.fallingwords.utils.TileDrawable
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.plusAssign
 import kotlinx.android.synthetic.main.activity_main.*
@@ -41,9 +44,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun init() {
+        setBackgroundPattern()
         observeState()
         observeLiveData()
         setListeners()
+    }
+
+    private fun setBackgroundPattern() {
+        ContextCompat.getDrawable(this, R.drawable.ic_zig_zag)?.let { pattern ->
+            imgBackground.setImageDrawable(TileDrawable(pattern, Shader.TileMode.REPEAT))
+        }
     }
 
     private fun setListeners() {
@@ -128,7 +138,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showFinalScreen() {
-        FinishDialogFragment().show(supportFragmentManager, "FINISH_FRAGMENT")
+        val dialog = FinishDialogFragment()
+        dialog.isCancelable = false
+        dialog.show(supportFragmentManager, "FINISH_FRAGMENT")
     }
 
 
