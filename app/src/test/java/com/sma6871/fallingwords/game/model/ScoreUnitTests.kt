@@ -1,4 +1,4 @@
-package com.sma6871.fallingwords.domain.model
+package com.sma6871.fallingwords.game.model
 
 import org.junit.Assert.assertEquals
 import org.junit.Before

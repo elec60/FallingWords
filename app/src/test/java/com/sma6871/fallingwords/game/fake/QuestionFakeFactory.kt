@@ -1,6 +1,6 @@
-package com.sma6871.fallingwords.domain.fake
+package com.sma6871.fallingwords.game.fake
 
-import com.sma6871.fallingwords.domain.model.Question
+import com.sma6871.fallingwords.game.model.Question
 import java.util.*
 import kotlin.random.Random
 

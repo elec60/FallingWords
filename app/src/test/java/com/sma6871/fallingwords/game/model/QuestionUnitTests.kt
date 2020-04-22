@@ -1,7 +1,7 @@
-package com.sma6871.fallingwords.domain.model
+package com.sma6871.fallingwords.game.model
 
-import com.sma6871.fallingwords.domain.enums.Answer
-import com.sma6871.fallingwords.domain.fake.QuestionFakeFactory
+import com.sma6871.fallingwords.game.enums.Answer
+import com.sma6871.fallingwords.game.fake.QuestionFakeFactory
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test

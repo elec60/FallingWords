@@ -1,7 +1,7 @@
-package com.sma6871.fallingwords.domain.model
+package com.sma6871.fallingwords.game.model
 
-import com.sma6871.fallingwords.domain.enums.Answer
-import com.sma6871.fallingwords.domain.fake.QuestionFakeFactory
+import com.sma6871.fallingwords.game.enums.Answer
+import com.sma6871.fallingwords.game.fake.QuestionFakeFactory
 import io.mockk.MockKSettings
 import io.mockk.every
 import io.mockk.mockk
@@ -57,7 +57,7 @@ class GameUnitTests {
         val question = mockk<Question>()
         every { question.answer(any()) } returns true
         val score = mockk<Score>()
-        val game = Game(listOf(question), score)
+        val game = Game(listOf(question))
 
         game.answer(question, Answer.CORRECT)
 
@@ -69,7 +69,7 @@ class GameUnitTests {
         val question = mockk<Question>()
         every { question.answer(any()) } returns false
         val score = mockk<Score>()
-        val game = Game(listOf(question), score)
+        val game = Game(listOf(question))
 
         game.answer(question, Answer.WRONG)
 
