@@ -15,6 +15,7 @@ import com.sma6871.fallingwords.presentation.state.LevelResultState
 import com.sma6871.fallingwords.presentation.state.QuestionState
 import com.sma6871.fallingwords.presentation.state.WelcomeState
 import com.sma6871.fallingwords.presentation.viewmodel.GameViewModel
+import com.sma6871.fallingwords.ui.dialog.FinishDialogFragment
 import com.sma6871.fallingwords.ui.dialog.ResultDialogFragment
 import com.sma6871.fallingwords.ui.dialog.WelcomeDialogFragment
 import io.reactivex.disposables.CompositeDisposable
@@ -127,7 +128,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showFinalScreen() {
-        TODO("Not yet implemented")
+        FinishDialogFragment().show(supportFragmentManager, "FINISH_FRAGMENT")
     }
 
 

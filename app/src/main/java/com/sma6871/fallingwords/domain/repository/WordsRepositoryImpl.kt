@@ -24,7 +24,7 @@ class WordsRepositoryImpl(
                         .bufferedReader()
                         .use { it.readText() }
                 val wordsList: List<Word> = gson.fromJson(wordsString)
-                emitter.onSuccess(wordsList)
+                emitter.onSuccess(wordsList.shuffled().take(10))
 
             } catch (exception: Resources.NotFoundException) {
                 emitter.onError(exception)

@@ -11,4 +11,6 @@
     <color name="score">#3949AB</color>
     <color name="white">#ffffff</color>
     <color name="title">#8E24AA</color>
+    <color name="finish_bg">#FF4081</color>
+    <color name="yellow">#EEFF41</color>
 </resources>

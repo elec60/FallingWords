@@ -10,4 +10,6 @@
     <string name="next">Next</string>
     <string name="correct_answer">Correct Answer</string>
     <string name="wrong_answer">Wrong Answer</string>
+    <string name="your_score_d_d">Your Score: %d/%d</string>
+    <string name="game_over">Game Over</string>
 </resources>

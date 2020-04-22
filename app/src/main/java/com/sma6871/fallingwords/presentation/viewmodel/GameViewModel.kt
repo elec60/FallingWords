@@ -30,6 +30,7 @@ class GameViewModel(
     fun getGameState(): Observable<GameState> = gameStateSubject
 
     private var game: Game? = null
+    var questionCount = 0
     var question: Question? = null
         private set
 
@@ -50,6 +51,7 @@ class GameViewModel(
                     errorLiveData.value = false
                     scoreLiveData.value = newGame.score
                     game = newGame
+                    questionCount = newGame.questions.size
                     gameStateSubject.onNext(WelcomeState)
                 }, {
                     loadingLiveData.value = false
