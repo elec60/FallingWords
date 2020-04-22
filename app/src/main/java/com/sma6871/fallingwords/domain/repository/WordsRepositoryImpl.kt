@@ -6,7 +6,7 @@ import com.google.gson.Gson
 import com.google.gson.JsonParseException
 import com.google.gson.JsonSyntaxException
 import com.sma6871.fallingwords.R
-import com.sma6871.fallingwords.game.model.Word
+import com.sma6871.fallingwords.data.model.Word
 import com.sma6871.fallingwords.utils.fromJson
 import io.reactivex.Single
 

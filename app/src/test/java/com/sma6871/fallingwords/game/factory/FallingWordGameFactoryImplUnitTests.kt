@@ -2,7 +2,7 @@ package com.sma6871.fallingwords.game.factory
 
 import com.sma6871.fallingwords.domain.repository.WordsRepository
 import com.sma6871.fallingwords.game.model.Game
-import com.sma6871.fallingwords.game.model.Word
+import com.sma6871.fallingwords.data.model.Word
 import com.sma6871.fallingwords.utils.RxSchedulersOverrideRule
 import io.mockk.MockKSettings
 import io.mockk.every

@@ -3,14 +3,12 @@ package com.sma6871.fallingwords.presentation.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.sma6871.fallingwords.game.enums.AnswerOption
 import com.sma6871.fallingwords.game.factory.FallingWordGameFactory
 import com.sma6871.fallingwords.game.model.Game
 import com.sma6871.fallingwords.game.model.Question
 import com.sma6871.fallingwords.game.model.Score
-import com.sma6871.fallingwords.presentation.state.FinishState
-import com.sma6871.fallingwords.presentation.state.GameState
-import com.sma6871.fallingwords.presentation.state.QuestionState
-import com.sma6871.fallingwords.presentation.state.WelcomeState
+import com.sma6871.fallingwords.presentation.state.*
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -21,8 +19,8 @@ class GameViewModel(
     private val factory: FallingWordGameFactory
 ) : ViewModel() {
 
-    private val loadingLiveData = MutableLiveData<Boolean>()
-    private val errorLiveData = MutableLiveData<Boolean>()
+    private val loadingLiveData = MutableLiveData(false)
+    private val errorLiveData = MutableLiveData(false)
     private val scoreLiveData = MutableLiveData<Score>()
     private val gameStateSubject = PublishSubject.create<GameState>()
 
@@ -38,10 +36,10 @@ class GameViewModel(
     private val bag = CompositeDisposable()
 
     init {
-        gameStateSubject.onNext(WelcomeState)
+        initGame()
     }
 
-    fun initGame() {
+    private fun initGame() {
         loadingLiveData.value = true
         errorLiveData.value = false
         bag += factory.buildGame()
@@ -52,7 +50,7 @@ class GameViewModel(
                     errorLiveData.value = false
                     scoreLiveData.value = newGame.score
                     game = newGame
-                    nextQuestion()
+                    gameStateSubject.onNext(WelcomeState)
                 }, {
                     loadingLiveData.value = false
                     errorLiveData.value = true
@@ -70,6 +68,16 @@ class GameViewModel(
             } else {
                 gameStateSubject.onNext(FinishState)
             }
+        }
+    }
+
+
+    fun answerQuestion(answerOption: AnswerOption) {
+        if (question == null) return
+        game?.let {
+            it.answer(question!!, answerOption)
+            scoreLiveData.value = it.score
+            gameStateSubject.onNext(LevelResultState(question!!))
         }
     }
 

@@ -3,7 +3,7 @@ package com.sma6871.fallingwords.game.factory
 import com.sma6871.fallingwords.domain.repository.WordsRepository
 import com.sma6871.fallingwords.game.model.Game
 import com.sma6871.fallingwords.game.model.Question
-import com.sma6871.fallingwords.game.model.Word
+import com.sma6871.fallingwords.data.model.Word
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 import kotlin.random.Random

@@ -6,6 +6,6 @@ sealed class GameState
 
 object WelcomeState : GameState()
 data class QuestionState(val question: Question) : GameState()
-object LevelResultState : GameState()
+data class LevelResultState(val question: Question) : GameState()
 object FinishState : GameState()
 

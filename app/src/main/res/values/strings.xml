@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Falling Words</string>
+    <string name="wrong">Wrong</string>
+    <string name="correct">Correct</string>
+    <string name="score">Score: %d</string>
+    <string name="error_message">Something went wrong</string>
+    <string name="welcome_n_falling_word_game">Welcome To\n Falling Word Game</string>
+    <string name="let_s_go">Let\'s Go</string>
+    <string name="are_you_ready_to_learn_new_spanish_words">Are you ready to learn new Spanish words?</string>
 </resources>
