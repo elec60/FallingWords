@@ -1,5 +1,5 @@
 package com.sma6871.fallingwords.game.enums
 
-enum class Answer {
+enum class AnswerOption {
     NONE, CORRECT, WRONG
 }

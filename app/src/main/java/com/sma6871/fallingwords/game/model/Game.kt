@@ -1,13 +1,14 @@
 package com.sma6871.fallingwords.game.model
 
-import com.sma6871.fallingwords.game.enums.Answer
+import com.sma6871.fallingwords.game.enums.AnswerOption
 
 class Game(
-    val questions: List<Question> = listOf()
+    val questions: List<Question> = listOf(),
+    val score: Score = Score()
 ) {
 
     private var questionIndex = 0
-    val score: Score = Score()
+
 
     fun nextQuestion(): Question? {
         if (questions.isEmpty())
@@ -18,8 +19,8 @@ class Game(
         return null
     }
 
-    fun answer(question: Question, answer: Answer) {
-        val result = question.answer(answer)
+    fun answer(question: Question, answerOption: AnswerOption) {
+        val result = question.answer(answerOption)
         if (result)
             score.increment()
     }
